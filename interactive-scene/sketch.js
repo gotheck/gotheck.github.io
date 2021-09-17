@@ -4,6 +4,7 @@ let y;
 let deg = 270;
 let speed = 3;
 let theColors;
+let hit = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -14,13 +15,19 @@ function setup() {
 
 function draw() {
   background(0);
+  rect(200, 200, 100, 150);
+    circle(mouseX, mouseY, 100);
+
+    hit = collideRectCircle(200, 200, 100, 150, mouseX, mouseY, 100);
+  
+
+    stroke(hit ? color('red') : 0);
   displayMain();
   moveMain();
 } 
 
+//targetcode
 theColors = ["white", "red"];
-  for (let i=0; i<2; i++) {
-  fill(theColors[i]);
   ellipse(200, 200, 400-40*i, 400-40*i);     
    
 }
