@@ -6,7 +6,7 @@ let speed = 3;
 let theColors;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES);
   x = width / 2;
   y = height / 1.2;
