@@ -15,22 +15,16 @@ function setup() {
 
 function draw() {
   background(0);
-  rect(200, 200, 100, 150);
-    circle(mouseX, mouseY, 100);
-
-    hit = collideRectCircle(200, 200, 100, 150, mouseX, mouseY, 100);
-  
-
-    stroke(hit ? color('red') : 0);
   displayMain();
   moveMain();
 } 
 
 //targetcode
 theColors = ["white", "red"];
-  ellipse(200, 200, 400-40*i, 400-40*i);     
-   
+for (let i=0; i<10; i++) {
+  ellipse(200, 200, 400-40*i, 400-40*i);
 }
+
 function moveMain() {
   if (keyIsDown(RIGHT_ARROW)) {
     deg += 4;
