@@ -22,7 +22,9 @@ function draw() {
 //targetcode
 theColors = ["white", "red"];
 for (let i=0; i<10; i++) {
+  push();
   ellipse(200, 200, 400-40*i, 400-40*i);
+  pop();
 }
 
 function moveMain() {
