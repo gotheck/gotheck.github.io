@@ -17,16 +17,14 @@ function draw() {
   background(255);
   displayMain();
   moveMain();
-  
+  rect()
+
 } 
 
 //targetcode
-theColors = ["white", "red"] 
-
-
+let TheColors = ["white", "red"] {
   fill(theColors)
   ellipse(200, 200, 400-40*i, 400-40*i);
-
 }
 
 function moveMain() {
