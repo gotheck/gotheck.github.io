@@ -17,6 +17,7 @@ function draw() {
   background(255);
   displayMain();
   moveMain();
+  
 } 
 
 //targetcode
