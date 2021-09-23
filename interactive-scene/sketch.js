@@ -3,7 +3,7 @@ let x;
 let y;
 let deg = 270;
 let speed = 3;
-let hit = false;
+let hit = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -15,9 +15,24 @@ function setup() {
 function draw() {
   background(255);
   displayTarget();
-
   moveSight();
+  collide();
+
 } 
+function collide() {
+  rect(200, 200, 100, 150);
+  circle(mouseX, mouseY, 35);
+ 
+  hit = collideRectCircle(200, 200, 100, 150, mouseX, mouseY, 35);
+  if (hit) {
+    stroke("red");
+  }
+  else {
+    stroke("black");
+  }
+ 
+
+}
 
 
 function moveSight() {
@@ -46,10 +61,10 @@ function displayTarget() {
   circle(windowWidth/2, windowHeight/2, 125, 50, 50);
   circle(windowWidth/2, windowHeight/2, 175, 50, 50);
   circle(windowWidth/2, windowHeight/2, 225, 50, 50);
-  rect(200, 200, 100, 150);
+  //rect(200, 200, 100, 150);
+  rect(1350, 200, 100, -150);
+  rect(50, 200, 100, -150);
   rect(1200, 200, 100, 150);
-  rect(50, 200, 80, -130);
-  rect(1005, 200, 100, 150);
   pop();
 }
 
