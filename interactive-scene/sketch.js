@@ -19,18 +19,12 @@ function draw() {
 
 } 
 function collide() {
-  //rect(200, 200, 100, 150);
   circle(mouseX, mouseY, 35);
- 
   hit = collideRectCircle(200, 200, 100, 150, mouseX, mouseY, 35);
   if (hit) {
     stroke("red");
   }
-  else {
-    stroke("green");
-  }
 }
-
 function moveSight() {
   noFill();
   stroke(64);
@@ -39,8 +33,11 @@ function moveSight() {
 }
 
 function displayTarget() {
-  stroke("green");
   push();
+  hit =collideCircleCircle(windowWidth/2, windowHeight/2, 75, 50, 50);
+  if (hit) {
+    stroke("red");
+  }
   circle(windowWidth/2, windowHeight/2, 75, 50, 50);
   circle(windowWidth/2, windowHeight/2, 125, 50, 50);
   circle(windowWidth/2, windowHeight/2, 175, 50, 50);
