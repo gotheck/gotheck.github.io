@@ -13,7 +13,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
   }
   else {
-  createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight);
   }
   grid = createRandGrid(gridSize);
 }

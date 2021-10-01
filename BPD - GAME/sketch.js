@@ -10,10 +10,10 @@ let cellSize;
 
 function setup() {
   if (windowHeight<windowWidth) {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowHeight, windowHeight);
   }
   else {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowWidth);
   }
   grid = makeRanArray(gridDimensions);
   cellSize = width / gridDimensions;
@@ -24,12 +24,25 @@ function draw() {
   displayGrid();
 }
 
+function mousePressed() {
+  let cellX = Math.floor(mouseX);
+  let cellY = Math.floor();
+}
+
 function displayGrid() {
   for (let y=0; y<gridDimensions; y++) {
     for (let x=0; x<gridDimensions; x++){
+      if (grid[y][x] === 0) {
+        fill("white");
+      }
+      else if (grid[y][x] === 1) {
+        fill("black");
+      }
+      rect(x*cellSize,y*cellSize,cellSize, cellSize);
     }
-    rect(x*cellSize,y*cellSize,cellSize, cellSize);
+  }
 }
+
 
 function makeRanArray(whatSize) {
   let aArray = [];
@@ -39,9 +52,10 @@ function makeRanArray(whatSize) {
       if (random(0,100)> 30) {
         aArray[y].push(0);
       }
+      else {
+        aArray[y].push(1);
+      }
     }
   }
   return aArray;
-
 }
-
