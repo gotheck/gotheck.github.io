@@ -49,6 +49,9 @@ function keyPressed() {
   if (key==="p") {
     autoPlay = !autoPlay;
   }
+  if (key === "g") {
+    grid = gun;
+  }
 }
 
 function update() {
