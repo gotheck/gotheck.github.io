@@ -6,8 +6,15 @@
 // - describe what you did to take this project "above and beyond"
 
 let grid;
-let gridDimensions = 15;
+let gridDimensions = 30;
 let cellSize;
+let autoPlay = false;
+let gun;
+
+
+function preload(){
+  gun = loadJSON("assets/gosper-gun.json");
+}
 
 function setup() {
   if (windowHeight < windowWidth) {
@@ -24,6 +31,9 @@ function draw() {
   background(220);
 
   displayGrid();
+  if (autoPlay && frameCount % 10 === 10) {
+    update();
+  }
 }
 
 function keyPressed() {
@@ -35,6 +45,9 @@ function keyPressed() {
   }
   if (key=== " ") {
     update();
+  }
+  if (key==="p") {
+    autoPlay = !autoPlay;
   }
 }
 
