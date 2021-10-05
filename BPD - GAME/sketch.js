@@ -24,10 +24,13 @@ function draw() {
   displayGrid();
 }
 
-function mousePressed() {
-  let cellX = Math.floor(mouseX);
-  let cellY = Math.floor();
-}
+// function mousePressed() {
+//   if (mouseX <= width && mouseY <= height) {
+//     let cellX = Math.floor(mouseX/cellSize);
+//     let cellY = Math.floor(mouseY/cellSize);
+
+//     swap(cellx)
+// }
 
 function displayGrid() {
   for (let y=0; y<gridDimensions; y++) {
