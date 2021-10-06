@@ -16,20 +16,20 @@ function setup() {
 
 function draw() {
   background(220);
-  generateTerrain();
+  displayTerrain();
 }
 
 function displayTerrain() {
   let rectWidth = width/numberOfRectangles;
   fill("black");
   for (let i = 0; i<heights.length; i++) {
-    rect(i*rectWidth, height-height[i], rectWidth, heights[i]);
+    rect(i*rectWidth, height-heights[i], rectWidth, heights[i]);
   }
 }
 
 function generateTerrain(howMany) {
-  let time = 0;
-  let dTime = 0.002;
+  let time = 0.1;
+  let dTime = 0.1;
 
   for(let i = 0; i<howMany; i++) {
     let currentHeight = noise(time)*height;
