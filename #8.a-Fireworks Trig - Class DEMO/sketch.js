@@ -25,8 +25,8 @@ function mousePressed() {
   let numOfFireworks = 100;
   for (let i=0; i<numOfFireworks; i++) {
     //let scalar = random(1,3);
-    let dx = cos(i*360/numOfFireworks)// * scalar;
-    let dy = sin(i*360/numOfFireworks)// * scalar;
+    let dx = cos(i*360/numOfFireworks);// * scalar;
+    let dy = sin(i*360/numOfFireworks);// * scalar;
     let someParticle = new Particle(mouseX, mouseY, dx ,dy) ;
     fireworks.push(someParticle);
   }
