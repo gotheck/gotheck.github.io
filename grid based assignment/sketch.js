@@ -103,7 +103,7 @@ function makeRanArray(whatSize) {
   for (let y=0; y<whatSize; y++) {
     aArray.push([]);
     for (let x=0; x<whatSize; x++) {
-      if (random(0,100)> 30) {
+      if (random(0,40)> 20) {
         aArray[y].push(0);
       }
       else {
