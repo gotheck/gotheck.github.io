@@ -5,7 +5,7 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 let grid;
-let gridDimensions = 20;
+let gridDimensions = 16;
 let cellSize;
 let playerX = 0;
 let playerY = 0;
@@ -29,12 +29,25 @@ function setup() {
 function draw() {
   background(0);
   displayGrid();
+
+  // for (let i=0; i === gridDimensions; i++) {
+  //   for (let j=0; j === gridDimensions; j++) {
+
+  //   }
+  // }
 }
 
 function mousePressed() {
-  let cellX = Math.floor(mouseX/cellSize);
-  let cellY = Math.floor(mouseY/cellSize);
-  swap(cellX, cellY);
+  if (mouseX <= width && mouseY <= height) {
+    let cellX = Math.floor(mouseX/cellSize);
+    let cellY = Math.floor(mouseY/cellSize);
+
+    swap(cellX, cellY);
+    // swap(cellX, cellY-1);
+    // swap(cellX, cellY+1);
+    // swap(cellX-1, cellY);
+    // swap(cellX+1, cellY);
+  }
 }
 
 function keyPressed() {
@@ -85,10 +98,10 @@ function displayGrid() {
   for (let y=0; y<gridDimensions; y++) {
     for (let x=0; x<gridDimensions; x++){
       if (grid[y][x] === 0) {
-        fill("white");
+        fill("black");
       }
       else if (grid[y][x] === 1) {
-        fill("black");
+        fill("white");
       }
       else if (grid[y][x] === 9) {
         fill("red");
@@ -103,7 +116,7 @@ function makeRanArray(whatSize) {
   for (let y=0; y<whatSize; y++) {
     aArray.push([]);
     for (let x=0; x<whatSize; x++) {
-      if (random(0,40)> 20) {
+      if (random(0,80)) {
         aArray[y].push(0);
       }
       else {
