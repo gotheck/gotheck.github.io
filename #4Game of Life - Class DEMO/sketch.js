@@ -18,10 +18,10 @@ function preload(){
 
 function setup() {
   if (windowHeight < windowWidth) {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowHeight, windowHeight);
   }
   else {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowWidth);
   }
   grid = createRandArray(gridDimensions);
   cellSize = width / gridDimensions;
