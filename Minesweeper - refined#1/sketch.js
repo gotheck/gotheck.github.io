@@ -7,11 +7,10 @@
 let grid;
 let gridDimensions = 32;
 let cellSize;
-// let playerX = 0;
-// let playerY = 0;
 let mineX = [];
 let mineY = [];
 let mines;
+let state = "game";
 
 
 function setup() {
@@ -28,14 +27,14 @@ function setup() {
 }
 
 function draw() {
-  background(0);
-  displayGrid();
-
-  // for (let i=0; i === gridDimensions; i++) {
-  //   for (let j=0; j === gridDimensions; j++) {
-
-  //   }
-  // }
+  if (state === "game") {
+    displayGrid();
+  }
+  else if (state === "dead") {
+    //show death screen
+    // stateDead();
+    console.log("dead now");
+  }
 }
 
 function mousePressed() {
@@ -51,39 +50,6 @@ function mousePressed() {
   }
 }
 
-// function keyPressed() {
-//   if (key === "s") {
-//     tryMoveTo(playerX, playerY +1);
-//   }
-//   else if (key === "w") {
-//     tryMoveTo(playerX, playerY -1);
-//   }
-//   else if (key === "d") {
-//     tryMoveTo(playerX +1, playerY);
-//   }
-//   else if (key === "a") {
-//     tryMoveTo(playerX -1, playerY);
-//   }
-// }
-
-// function tryMoveTo(newX, newY) {
-//   //check if ON GRID
-//   if (newX >= 0 && newY >= 0 && newX < gridDimensions && newY < gridDimensions) {
-//     //check if SPACE IS EMPTY
-//     if (grid[newY][newX] === 0) {
-//       //RESET SPACE TO EMPTY
-//       // grid[playerY][playerX] = 0;
-
-//       // //PLAYER MOVEMENT
-//       // playerX = newX;
-//       // playerY = newY;
-
-//       //PLAYER PLACEMENT ON GRID
-//       grid[newY][newX] = 9;
-//     }
-//   }
-// }
-
 function swap(x,y) {
   if (x >= 0 && x < gridDimensions && y >= 0 && gridDimensions) {
     if (grid[y][x]===0) {
@@ -94,6 +60,7 @@ function swap(x,y) {
     }
     else if (grid[y][x] === 9) {
       grid[y][x] = 9;
+      state = "dead";
     }
   }
 }
