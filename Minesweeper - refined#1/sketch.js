@@ -11,6 +11,7 @@ let mineX = [];
 let mineY = [];
 let mines;
 let state = "game";
+let gameOverButton;
 
 
 function setup() {
@@ -22,6 +23,8 @@ function setup() {
   }
   grid = makeRanArray(gridDimensions);
   cellSize = width / gridDimensions;
+  gameOverButton = createButton("Game Over");
+  
   //place player
   // grid[playerY][playerX] = 9;
 }
