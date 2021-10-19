@@ -1,5 +1,5 @@
-// Project Title
-// Your Name
+// Ball OOP DEMO
+// Kieran j
 // Date
 //
 // Extra for Experts:
@@ -39,7 +39,7 @@ class Ball {
     this.x = x;
     this.y = y;
     this.radius = random(30, 60);
-    this.theColor = color(random(255),random(255),random(255),random(255));
+    this.theColor = color(random(255), random(255), random(255), random(255));
     this.dx = random(-5, 5);
     this.dy = random(-5, 5);
   }

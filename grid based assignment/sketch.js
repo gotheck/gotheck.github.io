@@ -5,13 +5,11 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 let grid;
-let gridDimensions = 32;
+let gridDimensions = 20;
 let cellSize;
-let mineX = [];
-let mineY = [];
-let mines;
-let state = "game";
-let gameOverButton;
+let playerX = 0;
+let playerY = 0;
+// let numOfRectangle;
 
 
 function setup() {
@@ -23,33 +21,52 @@ function setup() {
   }
   grid = makeRanArray(gridDimensions);
   cellSize = width / gridDimensions;
-  gameOverButton = createButton("Game Over");
-  
+  // generateTerrain();
   //place player
-  // grid[playerY][playerX] = 9;
+  grid[playerY][playerX] = 9;
 }
 
 function draw() {
-  if (state === "game") {
-    displayGrid();
-  }
-  else if (state === "dead") {
-    //show death screen
-    // stateDead();
-    console.log("dead now");
-  }
+  background(0);
+  displayGrid();
 }
 
 function mousePressed() {
-  if (mouseX <= width && mouseY <= height) {
-    let cellX = Math.floor(mouseX/cellSize);
-    let cellY = Math.floor(mouseY/cellSize);
+  let cellX = Math.floor(mouseX/cellSize);
+  let cellY = Math.floor(mouseY/cellSize);
+  swap(cellX, cellY);
+}
 
-    swap(cellX, cellY);
-    swap(cellX-1, cellY-1);
-    swap(cellX+1, cellY+1);
-    swap(cellX-1, cellY+1);
-    swap(cellX+1, cellY-1);
+function keyPressed() {
+  if (key === "s") {
+    tryMoveTo(playerX, playerY +1);
+  }
+  else if (key === "w") {
+    tryMoveTo(playerX, playerY -1);
+  }
+  else if (key === "d") {
+    tryMoveTo(playerX +1, playerY);
+  }
+  else if (key === "a") {
+    tryMoveTo(playerX -1, playerY);
+  }
+}
+
+function tryMoveTo(newX, newY) {
+  //check if ON GRID
+  if (newX >= 0 && newY >= 0 && newX < gridDimensions && newY < gridDimensions) {
+    //check if SPACE IS EMPTY
+    if (grid[newY][newX] === 0) {
+      //RESET SPACE TO EMPTY
+      grid[playerY][playerX] = 0;
+
+      //PLAYER MOVEMENT
+      playerX = newX;
+      playerY = newY;
+
+      //PLAYER PLACEMENT ON GRID
+      grid[newY][newX] = 9;
+    }
   }
 }
 
@@ -59,11 +76,7 @@ function swap(x,y) {
       grid[y][x] = 1;
     }
     else if (grid[y][x] === 1) {
-      grid[y][x] = 1;
-    }
-    else if (grid[y][x] === 9) {
-      grid[y][x] = 9;
-      state = "dead";
+      grid[y][x] = 0;
     }
   }
 }
@@ -72,14 +85,13 @@ function displayGrid() {
   for (let y=0; y<gridDimensions; y++) {
     for (let x=0; x<gridDimensions; x++){
       if (grid[y][x] === 0) {
-        fill("black");
-      }
-      else if (grid[y][x] === 1) {
         fill("white");
       }
+      else if (grid[y][x] === 1) {
+        fill("black");
+      }
       else if (grid[y][x] === 9) {
-      //   // fill("red"); //hide mines by filling in with 0 value color
-        fill("red");
+        fill("green");
       }
       rect(x*cellSize,y*cellSize,cellSize, cellSize);
     }
@@ -91,11 +103,11 @@ function makeRanArray(whatSize) {
   for (let y=0; y<whatSize; y++) {
     aArray.push([]);
     for (let x=0; x<whatSize; x++) {
-      if (random(0,80)>3) {
+      if (random(0,100)> 30) {
         aArray[y].push(0);
       }
       else {
-        aArray[y].push(9);
+        aArray[y].push(1);
       }
     }
   }
