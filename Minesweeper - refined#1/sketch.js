@@ -1,9 +1,7 @@
 // grid d d
 // kieranj
 // 9/28/21
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+
 let grid;
 let gridDimensions = 32;
 let cellSize;
