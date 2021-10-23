@@ -79,7 +79,7 @@ function displayGrid() {
       }
       else if (grid[y][x] === 9) {
       //   // fill("red"); //hide mines by filling in with 0 value color
-        fill("red");
+        fill("black");
       }
       rect(x*cellSize,y*cellSize,cellSize, cellSize);
     }
