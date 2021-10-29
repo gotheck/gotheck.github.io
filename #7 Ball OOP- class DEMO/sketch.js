@@ -5,7 +5,7 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-//let myBall;
+let myBall;
 let ballArray = [];
 
 
@@ -20,7 +20,7 @@ function draw() {
 
   for (let i=0; i < ballArray.length; i++) {
     for (let j=0; j < ballArray.length; j++) {
-      if (i !== j) { //dont check if hit self
+      if (i !== j) {   //dont check if hit self
         ballArray[i].checkCollisionWith(ballArray[j]);
       }
     }
@@ -62,7 +62,6 @@ class Ball {
       this.dy *= -1;
     }
   }
-
   checkCollisionWith(otherBall) {
     let distanceBetween = dist(this.x, this.y, otherBall.x, otherBall.y);
     let radiiSum = this.radius + otherBall.radius;
@@ -70,11 +69,9 @@ class Ball {
       //hit!
       this.theColor = "red";
       otherBall.theColor = "red";
-
-      //crap col dectect
+      //crap collision resolution
       let tempDx = this.dx;
       let tempDy = this.dy;
-
 
       this.dx = otherBall.dx;
       this.dy = otherBall.dy;
