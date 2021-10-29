@@ -11,7 +11,7 @@ function setup() {
   }
 
   //ball every 0.5s
-  window.setInterval(spawnBall, 500);
+  // window.setInterval(spawnBall, 500);
 }
 
 function draw() {
