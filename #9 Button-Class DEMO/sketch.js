@@ -2,7 +2,6 @@
 
 
 let bgColor = "white";
-
 let buttonOne, buttonTwo;
 
 function setup() {

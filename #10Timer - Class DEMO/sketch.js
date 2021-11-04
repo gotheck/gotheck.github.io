@@ -1,36 +1,41 @@
 // Project Title
-// Your Name
-// Date
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// kieran
+
 
 let backgroundTimer;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  backgroundTimer = new Timer()
+  backgroundTimer = new Timer(3000);
 }
 
 function draw() {
-  background(220);
+  if (backgroundTimer.isDone()) {
+    background("green"); 
+  }
+  else {
+    background("black");
+  }
+}
+function mousePressed() {
+  backgroundTimer.reset();
 }
 
 class Timer {
-  constructor(duration) {
-    this.duration = duration;
+  constructor(waitTime) {
+    this.waitTime = waitTime;
     this.startTimer = millis();
   }
 
   isDone() {
-    return millis() > this.startTimer + this.duration;
+    return millis() > this.startTimer + this.waitTime;
   }
 
   reset(){
     this.startTimer = millis();
   }
 
-  setDuration() {
-    
+  setDuration(waitTime) {
+    this.waitTime = waitTime;
   }
 }
